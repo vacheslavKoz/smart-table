@@ -48,7 +48,7 @@ export function initTable(settings, onAction) {
         }
     } );
       return newRow.container}) ;
-       console.log(nextRows)
+     //  console.log(nextRows)
        
       //  nextRows = {container: }
         //const nextRows = [];
