@@ -96,11 +96,9 @@ export function initSorting(columns) {
         // Применяем сортировку
         const sortedData = sortCollection(data, field, order);
         
-        // !!! ВАЖНО: сохраняем отсортированные данные в state
-        // чтобы следующий вызов (пагинация) использовал их
+      
        state.sortedData = sortedData;
         
-       ////////////////////////////////// console.log('Данные после сортировки:', sortedData.length); // тоже 230 записей, но отсортированные
         
        return sortedData;
     };

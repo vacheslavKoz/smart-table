@@ -46,7 +46,6 @@ export const initPagination = ({pages, fromRow, toRow, totalRows}, createPage) =
     pages.firstElementChild.remove();
 
     return (data, state, action) => {
-        // Используем отсортированные данные из state, если они есть
         const dataToUse = state.sortedData || data;
         
         const rowsPerPage = state.rowsPerPage;
