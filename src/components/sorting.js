@@ -24,6 +24,15 @@ console.log(order)                          // Направление забер
       //  column.dataset.value = 'none';                        // тогда сбрасываем её в начальное состояние
   //  }
 //});
+//console.log(action)
+if (action != undefined) {
+ columns.forEach(column => { 
+    console.log(action.dataset );                                 // Перебираем элементы (в columns у нас массив кнопок)
+    if (column.dataset.field !== action.dataset.field) {  
+          // Если это не та кнопка, что нажал пользователь
+       column.dataset.value = 'none'; }
+ })
+}
             // @todo: #3.3 — получить выбранный режим сортировки
             columns.forEach(column => {                        // Перебираем все наши кнопки сортировки
     if (column.dataset.value !== 'none') {        // Ищем ту, что находится не в начальном состоянии (предполагаем, что одна)

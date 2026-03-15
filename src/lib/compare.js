@@ -79,7 +79,7 @@ const rules = {
    // },
     
     arrayAsRange: () => (key, sourceValue, targetValue , source) => {
-       console.log(source)
+      // console.log(source)
          if(key == "totalFrom" && ( source.total < targetValue) ) {
          //   console.log(sourceValue)
             return {result: false};
