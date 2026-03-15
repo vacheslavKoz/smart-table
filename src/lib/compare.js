@@ -57,23 +57,46 @@ const rules = {
     // Обрабатывать массив как диапазон [от, до]
     // Подробнее: это позволяет проверить, попадает ли число
     // в заданный диапазон. Например, [10, 20] означает от 10 до 20 включительно
-    arrayAsRange: () => (key, sourceValue, targetValue) => {
-        if (Array.isArray(targetValue)) {
-            if (targetValue.length === 2) {
-                const [from, to] = targetValue;
-
-                if (!isEmpty(from) && sourceValue < from) {
-                    return { result: false };
-                }
-                if (!isEmpty(to) && sourceValue > to) {
-                    return { result: false };
-                }
-                return { result: true };
-            }
-            return { result: false };
-        }
-        return { continue: true };
+   // arrayAsRange: () => (key, sourceValue, targetValue) => {
+    //    console.log(key)
+     // console.log(targetValue);
+      //  if (Array.isArray(targetValue)) {
+         //   if (targetValue.length === 2) {
+             
+             //   const [from, to] = targetValue;
+              //  console.log(from)
+              //  if (!isEmpty(from) && sourceValue < from) {
+                   // return { result: false };
+               // }
+               // if (!isEmpty(to) && sourceValue > to) {
+               //     return { result: false };
+             //   }
+             //   return { result: true };
+          //  }
+          //  return { result: false };
+       // }
+       // return { continue: true };
+   // },
+    
+    arrayAsRange: () => (key, sourceValue, targetValue , source) => {
+       console.log(source)
+         if(key == "totalFrom" && ( source.total < targetValue) ) {
+         //   console.log(sourceValue)
+            return {result: false};
+          } 
+          if(key == "totalTo" && ( source.total > targetValue) ) {
+         //   console.log(sourceValue)
+            return {result: false};
+          }
+        
+       return { continue: true };
     },
+    
+
+
+
+
+
 
     // Сравнение на включение подстроки
     // Подробнее: проверяет, содержит ли строка другую строку
@@ -148,6 +171,7 @@ const rules = {
     // для реализации функций поиска в приложениях
     searchMultipleFields: (searchKey, searchFields, caseSensitive = false) => (key, sourceValue, targetValue, source, target) => {
         // Применять это правило только при обработке ключа поиска
+    
         if (key !== searchKey) {
             return { continue: true };
         }
