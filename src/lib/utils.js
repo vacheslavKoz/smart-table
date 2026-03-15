@@ -109,6 +109,6 @@ export function getPages(currentPage, maxPage, limit) {
     for (let i = start; i <= end; i++) {
         pages.push(i);
     }
-
+    console.log(pages)
     return pages;
 }
